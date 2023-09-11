@@ -12,6 +12,32 @@ class UsuarioController {
     cadastrarView(req, res) {
         res.render('usuario/cadastrar');
     }
+    editarView(req, res) {
+        // Passe o ID do usuário para a página de edição como um parâmetro
+        const userId = req.params.id;
+        res.render('usuario/editar', { userId });
+    }
+    
+    editar(req, res) {
+        let adc = new UsuarioModel();
+        if(req.body.id != ''  ) {
+          const newuser={
+                id: req.body.id,
+                nome: req.body.nome,
+                email:req.body.email,
+                ativo:req.body.ativo,
+                senha:req.body.senha,
+                perfil: req.body.perfil
+            }
+   adc.edtUsuarios(newuser.id,newuser.nome, newuser.email, newuser.ativo, newuser.senha, newuser.perfil);
+           
+            res.send({ok: true, msg: "Usuário alterado"})
+        }
+        else{
+            res.send({ok: false, msg: "Dados inválidos"})
+        }
+    }
+
 
     excluir(req, res) {
         const exc = new UsuarioModel();

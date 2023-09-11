@@ -35,4 +35,21 @@ document.addEventListener("DOMContentLoaded", function() {
             alert("Dados inválidos!")
         }
     }
+    
+    // Selecione todos os botões de edição com uma classe comum, por exemplo, "editarBtn"
+const botoesEditar = document.querySelectorAll(".editarBtn");
+
+// Adicione um evento de clique a cada botão de edição
+botoesEditar.forEach(function(botao) {
+    botao.addEventListener("click", function() {
+        let idEdicao = this.dataset.id;
+        if (idEdicao) {
+            // Redirecione o usuário para a página de edição com o ID do usuário
+            window.location.href = `/usuarios/editar/${idEdicao}`;
+        } else {
+            alert("ID de usuário inválido!");
+        }
+    });
+});
+    
 })

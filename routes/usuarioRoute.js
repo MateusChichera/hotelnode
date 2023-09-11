@@ -16,6 +16,8 @@ class UsuarioRoute {
         this.#router.get('/', ctrl.listarView);
         this.#router.get('/cadastrar', ctrl.cadastrarView);
         this.#router.post('/cadastrar', ctrl.cadastrar);
+        this.#router.get('/editar/:id', ctrl.editarView); // Rota de edição com parâmetro de ID
+        this.#router.post('/editar', ctrl.editar);
         this.#router.post('/excluir', ctrl.excluir);
         
     }

@@ -101,6 +101,13 @@ class UsuarioModel {
         let rows = await conexao.ExecutaComando(sql, [id])
         
     }
+    async edtUsuarios(id, nome, email, ativo, senha, per_id) {
+        let sql = "UPDATE tb_usuario SET usu_nome = ?, usu_email = ?, usu_ativo = ?, usu_senha = ?, per_id = ? WHERE usu_id = ?";
+      
+        let rows = await conexao.ExecutaComando(sql, [nome, email, ativo, senha, per_id, id]);
+      }
+      
+    
 }
 
 

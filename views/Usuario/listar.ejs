@@ -24,7 +24,7 @@
                     <td><%= lista[i].usuAtivo %></td>
                     <td>
                         <div>
-                            <button class="btn btn-primary">
+                            <button  data-id="<%= lista[i].usuId %>" class="btn btn-primary editarBtn">
                                 <i class="fas fa-pen"></i>
                             </button>
                             <button data-id="<%= lista[i].usuId %>" class="btn btn-danger btnExclusao">
